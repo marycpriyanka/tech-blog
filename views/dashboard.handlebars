@@ -1,0 +1,14 @@
+<div class="d-md-flex justify-content-md-end">
+  <button class="btn btn-primary me-0" id="create-post" type="button">Create a new post</button>
+</div>
+
+{{#each posts as |post|}}
+<div class="card">
+  <div class="card-header">
+    {{post.title}}
+  </div>
+  <div class="card-body">
+    <p class="card-text">Date created: {{post.date_created}}</p>
+  </div>
+</div>
+{{/each}}
