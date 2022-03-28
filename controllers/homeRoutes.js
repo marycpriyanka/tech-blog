@@ -21,24 +21,36 @@ router.get("/", withAuth, async (req, res) => {
     }
 });
 
-// Renders the dashboard page
-router.get("/dashboard", withAuth, async (req, res) => {
+// Gets one post
+router.get("/:id", withAuth, async (req, res) => {
     try {
-        const postData = await BlogPost.findAll({
-            where: {
-                user_id: req.session.user_id
-            }
+        // Gets a post by id
+        const postData = await BlogPost.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Comment
+                },
+                {
+                    model: User
+                }
+            ]
         });
 
-        const posts = postData.map(post => post.get({ plain: true }));
+        const post = postData.get({ plain: true });
 
-        res.render("dashboard", {
-            posts,
+        const curentUserData = await User.findByPk(req.session.user_id);
+        const currentUser = curentUserData.get({ plain: true });
+        console.log(currentUser);
+
+        // Renders the post with the comments
+        res.render("postWithComments", {
+            post, 
+            username: currentUser.name,
             logged_in: req.session.logged_in
         });
     }
     catch (err) {
-        console.log(`Error in rendering dashboard: ${err}`);
+        console.log(`Error in getting a post: ${err}`);
         res.status(500).json(err);
     }
 });

@@ -1,6 +1,6 @@
 :root {
-    --bg-color: #0249A3;
-    --header-color: #A37012;
+    --color1: #0249A3;
+    --color2: #A37012;
 }
 
 h1 {
@@ -8,6 +8,11 @@ h1 {
     padding: 2%;
 }
 
-header {
-    background-color: var(--header-color);
+.header-bg {
+    background-color: var(--color1);
+    color: var(--color2 );
+}
+
+body {
+    background-color: var(--color2);
 }
