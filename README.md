@@ -12,7 +12,6 @@ A blog site where developers can publish their blog posts and comment on other d
 - [Technologies used](#technologies-used)
 - [License](#license)
 - [How to Contribute](#how-to-contribute)
-- [Tests](#tests)
 - [Questions](#questions)
 
 ## Installation
@@ -32,10 +31,6 @@ Node.js, Express.js, Handlebars, MySQL2, Sequelize, dotenv package, bcrypt packa
 Tech Blog is available under the MIT License.
 
 ## How to Contribute
-
-
-
-## Tests
 
 
 
