@@ -3,18 +3,23 @@
     --color2: #A37012;
 }
 
+body {
+    background-color: var(--color2);
+}
+
 h1 {
     text-align: center;
     padding: 2%;
 }
 
+a {
+    text-decoration: none;
+    color: var(--color2);
+}
+
 .header-bg {
     background-color: var(--color1);
     color: var(--color2 );
-}
-
-body {
-    background-color: var(--color2);
 }
 
 .customBorder {
@@ -23,7 +28,4 @@ body {
     border-width: 1px;
 }
 
-a {
-    text-decoration: none;
-    color: var(--color2);
-}
+
