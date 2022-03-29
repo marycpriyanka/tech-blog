@@ -16,3 +16,14 @@ h1 {
 body {
     background-color: var(--color2);
 }
+
+.customBorder {
+    border-style: solid;
+    border-color: var(--color1);
+    border-width: 1px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color2);
+}

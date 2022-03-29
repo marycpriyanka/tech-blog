@@ -1,4 +1,4 @@
-<div class="card mb-3">
+<div class="card mb-3 customBorder">
     <div class="card-header header-bg">
         <h5>{{post.title}}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Created by {{post.user.name}} on {{format_date post.date_created}}
@@ -10,7 +10,7 @@
 </div>
 
 
-<div class="card">
+<div class="card customBorder">
     <div class="card-header header-bg">
         Comments
     </div>
@@ -18,7 +18,7 @@
         {{#each post.comments as |comment|}}
         <li class="list-group-item">
             {{comment.comment_content}}
-            <p class="mb-2 text-muted">Created by {{username}} on {{format_date comment.date_created}}</p>
+            <p class="mb-2 text-muted">Created on {{format_date comment.date_created}}</p>
         </li>
         {{/each}}
     </ul>
@@ -28,7 +28,7 @@
                 <label for="textArea" class="form-label">Add a comment</label>
                 <textarea class="form-control" id="textArea" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary header-bg">Submit</button>
         </form>
     </div>
 </div>

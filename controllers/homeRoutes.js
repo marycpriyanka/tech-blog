@@ -4,7 +4,7 @@ const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
     try {
-        // Gets all posts along with the comments
+        // Gets all posts
         const postData = await BlogPost.findAll();
 
         // Serialize data so that tempate can read it
@@ -21,40 +21,6 @@ router.get("/", withAuth, async (req, res) => {
     }
 });
 
-// Gets one post
-router.get("/:id", withAuth, async (req, res) => {
-    try {
-        // Gets a post by id
-        const postData = await BlogPost.findByPk(req.params.id, {
-            include: [
-                {
-                    model: Comment
-                },
-                {
-                    model: User
-                }
-            ]
-        });
-
-        const post = postData.get({ plain: true });
-
-        const curentUserData = await User.findByPk(req.session.user_id);
-        const currentUser = curentUserData.get({ plain: true });
-        console.log(currentUser);
-
-        // Renders the post with the comments
-        res.render("postWithComments", {
-            post, 
-            username: currentUser.name,
-            logged_in: req.session.logged_in
-        });
-    }
-    catch (err) {
-        console.log(`Error in getting a post: ${err}`);
-        res.status(500).json(err);
-    }
-});
-
 // Renders the login page
 router.get("/login", (req, res) => {
     //If the user is already logged in, redirect to the homepage.
@@ -64,6 +30,96 @@ router.get("/login", (req, res) => {
 
     // Otherwise render the login page
     res.render("login");
+});
+
+// Renders the dashboard page
+router.get("/dashboard", withAuth, async (req, res) => {
+    try {
+        const postData = await BlogPost.findAll({
+            where: {
+                user_id: req.session.user_id
+            }
+        });
+
+        const posts = postData.map(post => post.get({ plain: true }));
+
+        res.render("dashboard", {
+            posts,
+            logged_in: req.session.logged_in
+        });
+    }
+    catch (err) {
+        console.log(`Error in rendering dashboard: ${err}`);
+        res.status(500).json(err);
+    }
+});
+
+// Renders the create new post page
+router.get("/dashboard/newpost", withAuth, async (req, res) => {
+    try {
+        res.render("newPost");
+    }
+    catch (err) {
+        console.log(`Error in rendering creat new post: ${err}`);
+        res.status(500).json(err);
+    }
+});
+
+// Renders the edit post page
+router.get("/dashboard/:id", withAuth, async (req, res) => {
+    try {
+        const postData = await BlogPost.findByPk(req.params.id);
+
+        const post = postData.get({ plain: true });
+
+        res.render("editPost", {post, logged_in: req.session.logged_in});
+    }
+    catch (err) {
+        console.log(`Error in rendering creat new post: ${err}`);
+        res.status(500).json(err);
+    }
+});
+
+// Gets one post
+router.get("/:id", withAuth, async (req, res) => {
+    try {
+        // Gets a post by id
+        const postData = await BlogPost.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Comment,       
+                    // attributes: ["id", "comment_content", "post_id", "user_id", "date_created"],
+                    // include: [
+                    //     {
+                    //         model: User, 
+                    //         attributes:["name"],
+                    //         where: {
+                    //             id: user_id
+                    //         }
+                    //     },             
+                    // ]
+                },
+                {
+                    model: User,
+                    attributes:["name"]
+                }
+            ]
+        });
+
+        const post = postData.get({ plain: true });
+
+        //   console.log("line 43", post);
+
+        // Renders the post with the comments
+        res.render("postWithComments", {
+            post, 
+            logged_in: req.session.logged_in
+        });
+    }
+    catch (err) {
+        console.log(`Error in getting a post: ${err}`);
+        res.status(500).json(err);
+    }
 });
 
 module.exports = router;
