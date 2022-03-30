@@ -18,32 +18,32 @@ A blog site where developers can publish their blog posts and comment on other d
 
 Use the live Heroku URL to open the deployed application. You will be presented with a homepage which includes existing blog posts if any have been posted and also navigation links for the homepage and the dashboard and the option to log in. Clicking on the homepage option will take you to the homepage. 
 
-![homepage](https://github.com/marycpriyanka/tech-blog/blob/main/screenshots/homepage.JPG)
+![homepage](https://github.com/marycpriyanka/tech-blog/blob/main/images/screenshots/homepage.JPG)
 
 If you click on any other links in the navigation, you will be taken to th login or signup page. 
 
-![login](https://github.com/marycpriyanka/tech-blog/blob/main/screenshots/login.JPG)
+![login](https://github.com/marycpriyanka/tech-blog/blob/main/images/screenshots/login.JPG)
 
 If you are a new user, you can signup by entering your username, email and password. You will be signed in and taken to homepage. If you are a returning user, enter your email and password to login and you will be taken to homepage.
 
 If you click on any existing blog in homepage, you will be presented with all the details of the blog post, all the comments and an option to enter a comment. 
 If you enter a comment, the post will be updated to display the comment.
 
-![comments](https://github.com/marycpriyanka/tech-blog/blob/main/screenshots/blogWithComments.JPG)
+![comments](https://github.com/marycpriyanka/tech-blog/blob/main/images/screenshots/blogWithComments.JPG)
 
 If you click on the dashboard option in the navigation, then you will be taken to dashboard and presented with any blog posts you have already created and an option to create a new blog post. 
 
-![dashboard](https://github.com/marycpriyanka/tech-blog/blob/main/screenshots/dashboard.JPG)
+![dashboard](https://github.com/marycpriyanka/tech-blog/blob/main/images/screenshots/dashboard.JPG)
 
 If you click on the button to add new post, you will be prompted to enter the title and contents of the post. 
 
-![create](https://github.com/marycpriyanka/tech-blog/blob/main/screenshots/create.JPG)
+![create](https://github.com/marycpriyanka/tech-blog/blob/main/images/screenshots/create.JPG)
 
 If you click on the create button, you will be taken to the updated dashboard with your new blog post. 
 
 If you click on an existing post in the dashboard, then you have the option to edit or delete your post.
 
-![update](https://github.com/marycpriyanka/tech-blog/blob/main/screenshots/update.JPG)
+![update](https://github.com/marycpriyanka/tech-blog/blob/main/images/screenshots/update.JPG)
 
 You can sign out of the site by clicking logout option in navigation.
 
