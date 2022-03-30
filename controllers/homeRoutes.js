@@ -89,15 +89,12 @@ router.get("/:id", withAuth, async (req, res) => {
                 {
                     model: Comment,       
                     // attributes: ["id", "comment_content", "post_id", "user_id", "date_created"],
-                    // include: [
-                    //     {
-                    //         model: User, 
-                    //         attributes:["name"],
-                    //         where: {
-                    //             id: user_id
-                    //         }
-                    //     },             
-                    // ]
+                    include: [
+                        {
+                            model: User, 
+                            attributes:["name"],
+                        },             
+                    ]
                 },
                 {
                     model: User,
@@ -108,7 +105,7 @@ router.get("/:id", withAuth, async (req, res) => {
 
         const post = postData.get({ plain: true });
 
-        //   console.log("line 43", post);
+          console.log("line 43", post);
 
         // Renders the post with the comments
         res.render("postWithComments", {
