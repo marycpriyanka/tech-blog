@@ -3,7 +3,7 @@
 
 ## Description
 
-A blog site where developers can publish their blog posts and comment on other developer's posts as well. Developers who writes about tech can use this blog site to publish articles, blog posts and theirthougts and opinions about technical concepts, recent advancements and new technologies.
+A blog site where developers can publish their blog posts and comment on other developer's posts as well. Developers who write about tech can use this blog site to publish articles, blog posts and their thougts and opinions about technical concepts, recent advancements and new technologies.
 
 ## Table of Contents 
 
