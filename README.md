@@ -21,14 +21,15 @@ This program can be run through a browser using the link to the deployed applica
 
 - Clone this repository to receive all of the files
 - Set up your environment variables in a .env file
-  DB_NAME=blog_db
+
+  `DB_NAME=blog_db`
   
-  DB_USER=<mysql username>
+  `DB_USER=<mysql username>`
   
-  DB_PASSWORD=<mysql password>
-- Run "npm install" in the command line of your terminal to set up all of the dependencies
-- Initialize your database by running the "schema.sql" file inside "db" folder with MySQL
-- Run "npm start" to start the application's connection
+  `DB_PASSWORD=<mysql password>`
+- Run `npm install` in the command line of your terminal to set up all of the dependencies
+- Initialize your database by running the `schema.sql` file inside "db" folder with MySQL
+- Run `npm start` to start the application's connection
 - Go to the url of the application (http//:localhost:3001) to begin using it
 
 ## Usage
